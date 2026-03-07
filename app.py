@@ -5,12 +5,23 @@ app = Flask(__name__)
 
 # --- Database Connection ---
 def get_db():
+    #---- LOCAL MySQL (localhost) ----
+    # return mysql.connector.connect(
+    #     host="localhost",
+    #     user="root",
+    #     password="yourpassword",
+    #     database="mydb"
+    # )
+
+    # ---- AWS RDS (cloud) ----
+
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="A_ta25!wbY66@",
-        database="mydb"
-    )
+        host="myshop-db.c74w0qcqe775.eu-north-1.rds.amazonaws.com",
+        user="admin",
+        password="JijRho9ieaAhAqMSqucc",
+        database="mydb",
+        port=3306
+)
 
 # --- ROUTE 1: Home ---
 @app.route('/')
